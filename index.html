@@ -1,278 +1,500 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Formula 1 Indonesia</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: Arial, sans-serif;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formula 1 - Dunia Balap Mobil Tercepat</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
 
-    body {
-      background: linear-gradient(135deg, #0f0f10, #2a2a2d);
-      color: #fff;
-      line-height: 1.6;
-    }
+        :root {
+            --f1-red: #e10600;
+            --f1-dark: #15151e;
+            --f1-white: #ffffff;
+            --f1-gray: #f2f2f2;
+        }
 
-    header {
-      background: #e10600;
-      padding: 20px 40px;
-      text-align: center;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
-    }
+        body {
+            background-color: var(--f1-gray);
+        }
 
-    header h1 {
-      font-size: 2.4rem;
-      letter-spacing: 1px;
-    }
+        /* Header */
+        header {
+            background: linear-gradient(135deg, var(--f1-dark) 0%, #2a2a3a 100%);
+            padding: 20px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
 
-    nav {
-      background: #151515;
-      padding: 12px 20px;
-      text-align: center;
-      position: sticky;
-      top: 0;
-      z-index: 10;
-    }
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      margin: 0 14px;
-      font-weight: bold;
-    }
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            color: var(--f1-white);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
 
-    nav a:hover {
-      color: #e10600;
-    }
+        .logo span {
+            color: var(--f1-red);
+        }
 
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 32px 18px;
-    }
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
 
-    .hero {
-      min-height: 380px;
-      border-radius: 18px;
-      overflow: hidden;
-      position: relative;
-      display: flex;
-      align-items: flex-end;
-      padding: 28px;
-      margin-bottom: 30px;
-      background: url('https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
-    }
+        nav a {
+            color: var(--f1-white);
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
 
-    .hero::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: rgba(0,0,0,0.58);
-    }
+        nav a:hover {
+            color: var(--f1-red);
+        }
 
-    .hero-content {
-      position: relative;
-      z-index: 1;
-      max-width: 680px;
-    }
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
+                        url('racestartgpkanada.webp');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--f1-white);
+        }
 
-    .hero h2 {
-      font-size: 2.2rem;
-      margin-bottom: 10px;
-    }
+        .hero-content h1 {
+            font-size: 4rem;
+            text-transform: uppercase;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+        }
 
-    .hero p {
-      font-size: 1.05rem;
-      color: #f1f1f1;
-    }
+        .hero-content p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            animation: fadeIn 1.5s ease-in;
+        }
 
-    .section {
-      margin: 42px 0;
-    }
+        .btn {
+            background-color: var(--f1-red);
+            color: var(--f1-white);
+            padding: 15px 40px;
+            border: none;
+            font-size: 1rem;
+            font-weight: bold;
+            cursor: pointer;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            transition: all 0.3s;
+            animation: fadeIn 2s ease-in;
+        }
 
-    .section h2 {
-      color: #ff3b30;
-      margin-bottom: 16px;
-      font-size: 1.8rem;
-    }
+        .btn:hover {
+            background-color: #ff3333;
+            transform: scale(1.05);
+        }
 
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-      gap: 18px;
-    }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-    .card {
-      background: #ffffff;
-      color: #111;
-      border-radius: 14px;
-      overflow: hidden;
-      box-shadow: 0 10px 20px rgba(0,0,0,0.22);
-    }
+        /* Sections */
+        .section {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
 
-    .card img {
-      width: 100%;
-      height: 170px;
-      object-fit: cover;
-      display: block;
-    }
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            color: var(--f1-dark);
+            margin-bottom: 50px;
+            position: relative;
+        }
 
-    .card-body {
-      padding: 16px;
-    }
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--f1-red);
+            margin: 15px auto 0;
+        }
 
-    .card h3 {
-      color: #e10600;
-      margin-bottom: 8px;
-    }
+        /* Sejarah */
+        .history-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
 
-    .button {
-      display: inline-block;
-      margin-top: 15px;
-      background: #e10600;
-      color: #fff;
-      padding: 12px 18px;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
+        .history-card {
+            background: var(--f1-white);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
 
-    .button:hover {
-      background: #b80500;
-    }
+        .history-card:hover {
+            transform: translateY(-10px);
+        }
 
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 16px;
-    }
+        .history-card h3 {
+            color: var(--f1-red);
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+        }
 
-    .gallery img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      border-radius: 14px;
-      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
-    }
+        .history-card p {
+            color: #666;
+            line-height: 1.8;
+        }
 
-    footer {
-      text-align: center;
-      padding: 20px;
-      background: #151515;
-      margin-top: 40px;
-      font-size: 0.95rem;
-    }
+        /* Tim dan Pembalap */
+        .teams-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
 
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 1.9rem;
-      }
+        .team-card {
+            background: var(--f1-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
 
-      .hero h2 {
-        font-size: 1.7rem;
-      }
+        .team-card:hover {
+            transform: scale(1.03);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+        }
 
-      nav a {
-        display: inline-block;
-        margin: 8px 10px;
-      }
-    }
-  </style>
+        .team-image {
+            width: 100%;
+            height: 200px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .team-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .team-info {
+            padding: 20px;
+        }
+
+        .team-name {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: var(--f1-dark);
+            margin-bottom: 10px;
+        }
+
+        .team-drivers {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Galeri */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 10px;
+            cursor: pointer;
+            height: 200px;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.2);
+        }
+
+        .gallery-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 20px;
+            transform: translateY(100%);
+            transition: transform 0.3s;
+        }
+
+        .gallery-item:hover .gallery-caption {
+            transform: translateY(0);
+        }
+
+        /* Statistik */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .stat-box {
+            background: var(--f1-dark);
+            color: var(--f1-white);
+            padding: 40px 30px;
+            text-align: center;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+
+        .stat-box:hover {
+            transform: translateY(-10px);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--f1-red);
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            margin-top: 10px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--f1-dark);
+            color: var(--f1-white);
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-content p {
+            margin-bottom: 10px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Formula 1 Indonesia</h1>
-    <p>Website gratis tentang dunia balap F1</p>
-  </header>
+    <header>
+        <div class="header-content">
+            <div class="logo">F1 <span>World</span></div>
+            <nav>
+                <ul>
+                    <li><a href="#sejarah">Sejarah</a></li>
+                    <li><a href="#tim">Tim 2024</a></li>
+                    <li><a href="#galeri">Galeri</a></li>
+                    <li><a href="#statistik">Statistik</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
-  <nav>
-    <a href="#tentang">Tentang</a>
-    <a href="#tim">Tim</a>
-    <a href="#galeri">Galeri</a>
-    <a href="#berita">Berita</a>
-    <a href="#kontak">Kontak</a>
-  </nav>
-
-  <div class="container">
     <section class="hero">
-      <div class="hero-content">
-        <h2>Kecepatan, Strategi, dan Adrenalin</h2>
-        <p>Formula 1 adalah ajang balap mobil paling terkenal di dunia dengan teknologi tinggi, persaingan ketat, dan aksi seru di setiap seri.</p>
-      </div>
-    </section>
-
-    <section class="section" id="tentang">
-      <h2>Tentang Formula 1</h2>
-      <p>Formula 1 adalah kompetisi balap mobil internasional yang pertama kali digelar pada tahun 1950. Saat ini, F1 memiliki banyak tim besar, pembalap berbakat, dan jutaan penggemar di seluruh dunia [web:15].</p>
-    </section>
-
-    <section class="section" id="tim">
-      <h2>Tim Populer 2026</h2>
-      <div class="cards">
-        <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/McLaren_Racing_logo.svg" alt="McLaren" />
-          <div class="card-body">
-            <h3>McLaren</h3>
-            <p>Tim legendaris dengan sejarah panjang dan performa kuat di era modern.</p>
-          </div>
+        <div class="hero-content">
+            <h1>Formula 1</h1>
+            <p>Dunia Balap Mobil Tercepat di Planet</p>
+            <button class="btn" onclick="scrollToSection()">Jelajahi Dunia F1</button>
         </div>
+    </section>
 
-        <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Scuderia_Ferrari_Logo.svg" alt="Ferrari" />
-          <div class="card-body">
-            <h3>Ferrari</h3>
-            <p>Tim ikonik dari Italia yang sangat dikenal dalam sejarah Formula 1.</p>
-          </div>
+    <section id="sejarah" class="section">
+        <h2 class="section-title">Sejarah Formula 1</h2>
+        <div class="history-grid">
+            <div class="history-card">
+                <h3>1950 - Era Dimulai</h3>
+                <p>Grand Prix pertama dimulai di Silverstone, Inggris. Giuseppe "Jo" Farina menjadi juara dunia pertama.</p>
+            </div>
+            <div class="history-card">
+                <h3>1970 - Inovasi Aerodinamika</h3>
+                <p>Tim mulai menggunakan sayap untuk memberikan downforce, Merevolusi desain mobil F1.</p>
+            </div>
+            <div class="history-card">
+                <h3>2000 - Era Hybrid</h3>
+                <p>Introduksi mesin V8 dan kemudian V6 Hybrid yang lebih efisien dan powerful.</p>
+            </div>
+            <div class="history-card">
+                <h3>2022 - Era Baru</h3>
+                <p>Desain mobil baru dengan ground effect untuk overtake yang lebih banyak.</p>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Red_Bull_Racing_logo.svg" alt="Red Bull Racing" />
-          <div class="card-body">
-            <h3>Red Bull Racing</h3>
-            <p>Tim dominan dengan mobil cepat dan strategi balap yang agresif.</p>
-          </div>
+    <section id="tim" class="section">
+        <h2 class="section-title">Tim dan Pembalap 2024</h2>
+        <div class="teams-grid">
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="redbull.webp" alt="Red Bull Racing">
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Red Bull Racing</div>
+                    <div class="team-drivers">Max Verstappen • Sergio Perez</div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="mercedes.jpg" alt="Mercedes">
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Mercedes-AMG</div>
+                    <div class="team-drivers">Lewis Hamilton • George Russell</div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="ferrarigp.jpg" alt="Ferrari">
+                </div>
+                <div class="team-info">
+                    <div class="team-name">Ferrari</div>
+                    <div class="team-drivers">Charles Leclerc • Carlos Sainz</div>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="mclaren.jpg" alt="McLaren">
+                </div>
+                <div class="team-info">
+                    <div class="team-name">McLaren</div>
+                    <div class="team-drivers">Lando Norris • Oscar Piastri</div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="card">
-          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes" />
-          <div class="card-body">
-            <h3>Mercedes</h3>
-            <p>Tim yang dikenal kuat dalam inovasi dan performa konsisten.</p>
-          </div>
+    <section id="galeri" class="section">
+        <h2 class="section-title">Galeri Foto</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item">
+                <img src="monacogp.jpg" alt="Monaco GP">
+                <div class="gallery-caption">Monaco Grand Prix - "The Jewel of the Crown"</div>
+            </div>
+            <div class="gallery-item">
+                <img src="2220283835.webp" alt="Australian GP">
+                <div class="gallery-caption">Australian GP - Melbourne</div>
+            </div>
+            <div class="gallery-item">
+                <img src="George Russell - Mercedes.jpg" alt="Canadian GP">
+                <div class="gallery-caption">George Russell Memimpin Balapan</div>
+            </div>
+            <div class="gallery-item">
+                <img src="britishgp.jpg" alt="British GP">
+                <div class="gallery-caption">British GP - Silverstone</div>
+            </div>
         </div>
-      </div>
     </section>
 
-    <section class="section" id="galeri">
-      <h2>Galeri Formula 1</h2>
-      <div class="gallery">
-        <img src="https://images.unsplash.com/photo-1543599504-1f4d8a1a4b8d?auto=format&fit=crop&w=900&q=80" alt="Mobil F1 1" />
-        <img src="https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?auto=format&fit=crop&w=900&q=80" alt="Mobil F1 2" />
-        <img src="https://images.unsplash.com/photo-1520045892732-304bc5d3c3c9?auto=format&fit=crop&w=900&q=80" alt="Mobil F1 3" />
-      </div>
+    <section id="statistik" class="section">
+        <h2 class="section-title">Statistik F1</h2>
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-number">74</div>
+                <div class="stat-label">Musim Balap</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">20+</div>
+                <div class="stat-label">Grand Prix/Tahun</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">10</div>
+                <div class="stat-label">Tim Berlaga</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-number">300+</div>
+                <div class="stat-label">km/jam Kecepatan</div>
+            </div>
+        </div>
     </section>
 
-    <section class="section" id="berita">
-      <h2>Berita & Sumber Resmi</h2>
-      <p>Kamu bisa mengikuti berita terbaru, hasil balapan, dan highlight resmi lewat situs Formula 1. Situs resmi F1 menyediakan berita, hasil, video, live timing, dan analisis mendalam [web:10].</p>
-      <a class="button" href="https://www.formula1.com" target="_blank">Kunjungi Situs Resmi F1</a>
-    </section>
+    <footer>
+        <div class="footer-content">
+            <p>© 2024 F1 World - Created for F1 Enthusiasts</p>
+            <p>Images sourced from Local Storage</p>
+        </div>
+    </footer>
 
-    <section class="section" id="kontak">
-      <h2>Kontak</h2>
-      <p>Email: info@formula1indonesia.com</p>
-      <p>Instagram: @formula1indonesia</p>
-    </section>
-  </div>
+    <script>
+        // Smooth scroll function
+        function scrollToSection() {
+            document.getElementById('sejarah').scrollIntoView({ 
+                behavior: 'smooth' 
+            });
+        }
 
-  <footer>
-    <p>© 2026 Formula 1 Indonesia. Website gratis untuk belajar dan berbagi informasi F1.</p>
-  </footer>
+        // Add scroll animation
+        window.addEventListener('scroll', function() {
+            const cards = document.querySelectorAll('.history-card, .team-card, .gallery-item');
+            cards.forEach(card => {
+                const cardTop = card.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+                if (cardTop < windowHeight - 100) {
+                    card.style.opacity = '1';
+                    card.style.transform = 'translateY(0)';
+                }
+            });
+        });
+    </script>
 </body>
 </html>
