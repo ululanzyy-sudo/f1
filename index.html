@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formula 1 Indonesia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #0f0f10, #2a2a2d);
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #e10600;
+      padding: 20px 40px;
+      text-align: center;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.35);
+    }
+
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      background: #151515;
+      padding: 12px 20px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin: 0 14px;
+      font-weight: bold;
+    }
+
+    nav a:hover {
+      color: #e10600;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 32px 18px;
+    }
+
+    .hero {
+      min-height: 380px;
+      border-radius: 18px;
+      overflow: hidden;
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+      padding: 28px;
+      margin-bottom: 30px;
+      background: url('https://images.unsplash.com/photo-1504707748692-419802cf939d?auto=format&fit=crop&w=1600&q=80') center/cover no-repeat;
+      box-shadow: 0 10px 28px rgba(0,0,0,0.35);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.58);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 680px;
+    }
+
+    .hero h2 {
+      font-size: 2.2rem;
+      margin-bottom: 10px;
+    }
+
+    .hero p {
+      font-size: 1.05rem;
+      color: #f1f1f1;
+    }
+
+    .section {
+      margin: 42px 0;
+    }
+
+    .section h2 {
+      color: #ff3b30;
+      margin-bottom: 16px;
+      font-size: 1.8rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 18px;
+    }
+
+    .card {
+      background: #ffffff;
+      color: #111;
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.22);
+    }
+
+    .card img {
+      width: 100%;
+      height: 170px;
+      object-fit: cover;
+      display: block;
+    }
+
+    .card-body {
+      padding: 16px;
+    }
+
+    .card h3 {
+      color: #e10600;
+      margin-bottom: 8px;
+    }
+
+    .button {
+      display: inline-block;
+      margin-top: 15px;
+      background: #e10600;
+      color: #fff;
+      padding: 12px 18px;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+
+    .button:hover {
+      background: #b80500;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 14px;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #151515;
+      margin-top: 40px;
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 1.9rem;
+      }
+
+      .hero h2 {
+        font-size: 1.7rem;
+      }
+
+      nav a {
+        display: inline-block;
+        margin: 8px 10px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Formula 1 Indonesia</h1>
+    <p>Website gratis tentang dunia balap F1</p>
+  </header>
+
+  <nav>
+    <a href="#tentang">Tentang</a>
+    <a href="#tim">Tim</a>
+    <a href="#galeri">Galeri</a>
+    <a href="#berita">Berita</a>
+    <a href="#kontak">Kontak</a>
+  </nav>
+
+  <div class="container">
+    <section class="hero">
+      <div class="hero-content">
+        <h2>Kecepatan, Strategi, dan Adrenalin</h2>
+        <p>Formula 1 adalah ajang balap mobil paling terkenal di dunia dengan teknologi tinggi, persaingan ketat, dan aksi seru di setiap seri.</p>
+      </div>
+    </section>
+
+    <section class="section" id="tentang">
+      <h2>Tentang Formula 1</h2>
+      <p>Formula 1 adalah kompetisi balap mobil internasional yang pertama kali digelar pada tahun 1950. Saat ini, F1 memiliki banyak tim besar, pembalap berbakat, dan jutaan penggemar di seluruh dunia [web:15].</p>
+    </section>
+
+    <section class="section" id="tim">
+      <h2>Tim Populer 2026</h2>
+      <div class="cards">
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/3/33/McLaren_Racing_logo.svg" alt="McLaren" />
+          <div class="card-body">
+            <h3>McLaren</h3>
+            <p>Tim legendaris dengan sejarah panjang dan performa kuat di era modern.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Scuderia_Ferrari_Logo.svg" alt="Ferrari" />
+          <div class="card-body">
+            <h3>Ferrari</h3>
+            <p>Tim ikonik dari Italia yang sangat dikenal dalam sejarah Formula 1.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/0/0d/Red_Bull_Racing_logo.svg" alt="Red Bull Racing" />
+          <div class="card-body">
+            <h3>Red Bull Racing</h3>
+            <p>Tim dominan dengan mobil cepat dan strategi balap yang agresif.</p>
+          </div>
+        </div>
+
+        <div class="card">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7a/Mercedes_AMG_Petronas_F1_Logo.svg" alt="Mercedes" />
+          <div class="card-body">
+            <h3>Mercedes</h3>
+            <p>Tim yang dikenal kuat dalam inovasi dan performa konsisten.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="galeri">
+      <h2>Galeri Formula 1</h2>
+      <div class="gallery">
+        <img src="https://images.unsplash.com/photo-1543599504-1f4d8a1a4b8d?auto=format&fit=crop&w=900&q=80" alt="Mobil F1 1" />
+        <img src="https://images.unsplash.com/photo-1519750157634-b6d493a0f77c?auto=format&fit=crop&w=900&q=80" alt="Mobil F1 2" />
+        <img src="https://images.unsplash.com/photo-1520045892732-304bc5d3c3c9?auto=format&fit=crop&w=900&q=80" alt="Mobil F1 3" />
+      </div>
+    </section>
+
+    <section class="section" id="berita">
+      <h2>Berita & Sumber Resmi</h2>
+      <p>Kamu bisa mengikuti berita terbaru, hasil balapan, dan highlight resmi lewat situs Formula 1. Situs resmi F1 menyediakan berita, hasil, video, live timing, dan analisis mendalam [web:10].</p>
+      <a class="button" href="https://www.formula1.com" target="_blank">Kunjungi Situs Resmi F1</a>
+    </section>
+
+    <section class="section" id="kontak">
+      <h2>Kontak</h2>
+      <p>Email: info@formula1indonesia.com</p>
+      <p>Instagram: @formula1indonesia</p>
+    </section>
+  </div>
+
+  <footer>
+    <p>© 2026 Formula 1 Indonesia. Website gratis untuk belajar dan berbagi informasi F1.</p>
+  </footer>
+</body>
+</html>
